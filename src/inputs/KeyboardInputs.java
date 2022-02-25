@@ -4,50 +4,61 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import main.GamePanel;
+import static utils.Constants.Directions.*;
 
 public class KeyboardInputs implements KeyListener {
 
 	private GamePanel gamePanel;
-	
+
 	public KeyboardInputs(GamePanel gamePanel) {
 		this.gamePanel = gamePanel;
 	}
-	
+
 	@Override
 	public void keyPressed(KeyEvent e) {
-		
-		switch(e.getKeyCode()) {
-		
+
+		switch (e.getKeyCode()) {
+
 		case KeyEvent.VK_W:
-			System.out.println("W Pressed!!!!");
-			gamePanel.changeYDelta(-5);
+			gamePanel.getGame().getPlayer().setUp(true);
 			break;
 		case KeyEvent.VK_A:
-			System.out.println("A Pressed!!!!");
-			gamePanel.changeXDelta(-5);
+			gamePanel.getGame().getPlayer().setLeft(true);
 			break;
 		case KeyEvent.VK_S:
-			System.out.println("S Pressed!!!!");
-			gamePanel.changeYDelta(5);
+			gamePanel.getGame().getPlayer().setDown(true);
 			break;
 		case KeyEvent.VK_D:
-			System.out.println("D Pressed!!!!");
-			gamePanel.changeXDelta(5);
+			gamePanel.getGame().getPlayer().setRight(true);
 			break;
 		}
-		
+
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+
+		switch (e.getKeyCode()) {
+
+		case KeyEvent.VK_W:
+			gamePanel.getGame().getPlayer().setUp(false);
+			break;
+		case KeyEvent.VK_A:
+			gamePanel.getGame().getPlayer().setLeft(false);
+			break;
+		case KeyEvent.VK_S:
+			gamePanel.getGame().getPlayer().setDown(false);
+			break;
+		case KeyEvent.VK_D:
+			gamePanel.getGame().getPlayer().setRight(false);
+			break;
+		}
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
