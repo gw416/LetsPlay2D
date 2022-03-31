@@ -2,11 +2,11 @@ package main;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
-
 import javax.swing.JPanel;
-
 import inputs.KeyboardInputs;
 import inputs.MouseInputs;
+import static main.Game.GAME_HIEGHT;
+import static main.Game.GAME_WIDTH;
 
 public class GamePanel extends JPanel {
 
@@ -23,8 +23,9 @@ public class GamePanel extends JPanel {
 	}
 
 	private void setPanelSize() {
-		Dimension dim = new Dimension(1280, 800); // set panel as this because image dimensions will 32 by 32 pixels
+		Dimension dim = new Dimension(GAME_WIDTH, GAME_HIEGHT); // set panel as this because image dimensions will 32 by 32 pixels
 		setPreferredSize(dim);
+		System.out.println("SIZE: "+GAME_WIDTH +"  : " + GAME_HIEGHT);
 	}
 
 	public void updateGame() {

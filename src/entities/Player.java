@@ -1,6 +1,5 @@
 package entities;
 
-import static utils.Constants.Directions.*;
 import static utils.Constants.PlayerConstants.*;
 
 import java.awt.Graphics;
@@ -9,6 +8,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
+
+import utils.LoadSave;
 
 public class Player extends Entity {
 
@@ -19,8 +20,8 @@ public class Player extends Entity {
 	private boolean left,up,right,down;
 	private float playerSpeed = 2.0f;
 
-	public Player(float x, float y) {
-		super(x, y);
+	public Player(float x, float y, int width, int height) {
+		super(x, y, width, height);
 		loadAnimations();
 	}
 
@@ -28,12 +29,10 @@ public class Player extends Entity {
 		updatePos();
 		updateAnimationTick();
 		setAnimation();
-
 	}
 
 	public void render(Graphics g) {
-		g.drawImage(animations[playerAction][animationIndex], (int) x, (int) y, 256, 160, null);
-
+		g.drawImage(animations[playerAction][animationIndex], (int) x, (int) y, width, height, null);
 	}
 
 	private void updateAnimationTick() {
@@ -61,19 +60,17 @@ public class Player extends Entity {
 		if(attacking)
 			playerAction = ATTACK_1;
 		
-		if(startAnimation != playerAction)
+		if(startAnimation != playerAction) // some change in animation
 			resetAnimation();
-				
 	}
 
+	//bug fix - choppy attack animation
 	private void resetAnimation() {
 		animationTick = 0;
 		animationIndex = 0;
-		
 	}
 
 	private void updatePos() {
-		
 		moving = false;
 		
 		if(left && !right) {
@@ -91,22 +88,15 @@ public class Player extends Entity {
 			y+=playerSpeed;
 			moving = true;
 		}
-		
 	}
 
 	private void loadAnimations() {
-
-		try (InputStream is = getClass().getResourceAsStream("/player_sprites.png")) {
-			BufferedImage img = ImageIO.read(is);
-
-			animations = new BufferedImage[9][6];
-			for (int j = 0; j < animations.length; j++)
-				for (int i = 0; i < animations[j].length; i++)
-					animations[j][i] = img.getSubimage(i * 64, j * 40, 64, 40);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		BufferedImage img = LoadSave.GetSpriteAtlas(LoadSave.PLAYER_ATLAS);
+		
+		animations = new BufferedImage[9][6];
+		for (int j = 0; j < animations.length; j++)
+			for (int i = 0; i < animations[i].length; i++)
+				animations[j][i] = img.getSubimage(i * 64, j * 40, 64, 40);		
 	}
 
 	public void setAttacking(boolean attacking) {
