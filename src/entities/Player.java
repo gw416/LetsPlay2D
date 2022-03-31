@@ -1,13 +1,12 @@
 package entities;
 
-import static utils.Constants.PlayerConstants.*;
+import static utils.Constants.PlayerConstants.ATTACK_1;
+import static utils.Constants.PlayerConstants.GetSpriteAmounts;
+import static utils.Constants.PlayerConstants.IDLE;
+import static utils.Constants.PlayerConstants.RUNNING;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
-
-import javax.imageio.ImageIO;
 
 import utils.LoadSave;
 

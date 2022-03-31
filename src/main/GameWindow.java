@@ -13,7 +13,7 @@ public class GameWindow {
 		jframe = new JFrame();
 		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jframe.add(gamePanel);
-		jframe.setLocationRelativeTo(null); // bring up window in center of screen
+		//jframe.setLocationRelativeTo(null); // bring up jframe top left edge in center of screen.. might need later
 		jframe.setResizable(false);
 		jframe.pack(); // using JPanel dimensions
 		jframe.setVisible(true); // keep at end to prevent bug

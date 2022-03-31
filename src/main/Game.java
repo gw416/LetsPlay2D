@@ -72,8 +72,8 @@ public class Game implements Runnable {
 		int updates = 0;
 		long lastSecond = System.currentTimeMillis();
 
-		double deltaU = 0;
-		double deltaF = 0;
+		double deltaU = 0; // updates
+		double deltaF = 0; // frames
 
 		while (true) {
 			long currentTime = System.nanoTime();
