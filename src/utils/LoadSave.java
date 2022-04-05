@@ -32,6 +32,7 @@ public class LoadSave {
 		return img;
 	}
 	
+	// use level data to find the amtching level sprite. level data will be either red green or blue
 	public static int[][] GetLevel() {
 		int[][] levelData = new int[Game.TILES_IN_HIEGHT][Game.TILES_IN_WIDTH];
 		BufferedImage img = GetSpriteAtlas(LEVEL_ONE);

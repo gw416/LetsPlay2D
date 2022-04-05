@@ -20,6 +20,14 @@ public class Constants {
 		public static final int ATTACK_JUMP_1 = 7;
 		public static final int ATTACK_JUMP_2 = 8;
 
+		/**
+		 * Determine the number of sprites for each action.
+		 * 
+		 * each action referes to a sprite row in the atlas.
+		 *  
+		 * @param player_action
+		 * @return
+		 */
 		public static int GetSpriteAmounts(int player_action) {
 			switch (player_action) {
 			case RUNNING:
