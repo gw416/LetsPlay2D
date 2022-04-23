@@ -12,15 +12,14 @@ public class MouseInputs implements MouseListener, MouseMotionListener {
 	private GamePanel gamePanel;
 
 	public MouseInputs(GamePanel gamePanel) {
+		System.out.println("MouseInputs.MouseInputs()............. Initializing MouseInputs");
+		
 		this.gamePanel = gamePanel;
 	}
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		switch(Gamestate.state){
-		case MENU:
-			gamePanel.getGame().getMenu().mouseClicked(e);
-			break;
 		case PLAYING:
 			gamePanel.getGame().getPlaying().mouseClicked(e);
 			break;
@@ -31,10 +30,32 @@ public class MouseInputs implements MouseListener, MouseMotionListener {
 	}
 
 	@Override
-	public void mouseDragged(MouseEvent e) {}
+	public void mouseDragged(MouseEvent e) {
+		switch(Gamestate.state){
+		case PLAYING:
+			gamePanel.getGame().getPlaying().mouseDragged(e);
+			break;
+		default:
+			break;
+			
+		}
+		
+	}
 
 	@Override
-	public void mouseMoved(MouseEvent e) {}
+	public void mouseMoved(MouseEvent e) {
+		switch(Gamestate.state){
+		case MENU:
+			gamePanel.getGame().getMenu().mouseMoved(e);
+			break;
+		case PLAYING:
+			gamePanel.getGame().getPlaying().mouseMoved(e);
+			break;
+		default:
+			break;
+			
+		}
+	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {}
@@ -43,8 +64,32 @@ public class MouseInputs implements MouseListener, MouseMotionListener {
 	public void mouseExited(MouseEvent e) {}
 
 	@Override
-	public void mousePressed(MouseEvent e) {}
+	public void mousePressed(MouseEvent e) {
+		switch(Gamestate.state){
+		case MENU:
+			gamePanel.getGame().getMenu().mousePressed(e);
+			break;
+		case PLAYING:
+			gamePanel.getGame().getPlaying().mousePressed(e);
+			break;
+		default:
+			break;
+			
+		}
+	}
 
 	@Override
-	public void mouseReleased(MouseEvent e) {}
+	public void mouseReleased(MouseEvent e) {
+		switch(Gamestate.state){
+		case MENU:
+			gamePanel.getGame().getMenu().mouseReleased(e);
+			break;
+		case PLAYING:
+			gamePanel.getGame().getPlaying().mouseReleased(e);
+			break;
+		default:
+			break;
+			
+		}
+	}
 }

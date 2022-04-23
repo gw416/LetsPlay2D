@@ -16,6 +16,8 @@ public class GamePanel extends JPanel {
 	private MouseInputs moustInputs;
 	private Game game;
 	public GamePanel(Game game) {
+		System.out.println("GamePanel.GamePanel()................. Initializing GamePanel");
+		
 		moustInputs = new MouseInputs(this);
 		this.game = game;
 		
@@ -28,7 +30,7 @@ public class GamePanel extends JPanel {
 	private void setPanelSize() {
 		Dimension dim = new Dimension(GAME_WIDTH, GAME_HIEGHT); // set panel as this because image dimensions will 32 by 32 pixels
 		setPreferredSize(dim);
-		System.out.println("SIZE: "+GAME_WIDTH +"  : " + GAME_HIEGHT);
+		System.out.println("GamePanel.setPanelSize().............. SIZE ["+GAME_WIDTH +"  : " + GAME_HIEGHT + "]");
 	}
 
 	public void updateGame() {
