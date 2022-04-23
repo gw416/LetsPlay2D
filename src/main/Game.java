@@ -25,8 +25,8 @@ public class Game implements Runnable {
 	
 	public final static int TILES_DEFAULT_SIZE = 32;
 	public final static float SCALE = 2f;
-	public final static int TILES_IN_WIDTH = 26;
-	public final static int TILES_IN_HIEGHT = 14;
+	public final static int TILES_IN_WIDTH = 26; // visible tiles
+	public final static int TILES_IN_HIEGHT = 14; // visible tiles
 	public final static int TILES_SIZE = (int) (TILES_DEFAULT_SIZE * SCALE);// 1.0, 1.5, 2.25, 2.5 etc to keep recommended pixel dimension ratio 
 	public final static int GAME_WIDTH = TILES_SIZE * TILES_IN_WIDTH;
 	public final static int GAME_HIEGHT = TILES_SIZE * TILES_IN_HIEGHT;
@@ -42,11 +42,15 @@ public class Game implements Runnable {
 	}
 
 	private void initClasses() {
+		System.out.println("Game.initClasses().................... Initializing Game state");
+		
 		menu = new Menu(this);
 		playing = new Playing(this);
 	}
 
 	private void startGameLooper() {
+		System.out.println("Game.startGameLooper()................ Starting Game Thread looper");
+		
 		gameThread = new Thread(this);
 		gameThread.start();
 	}
@@ -60,7 +64,10 @@ public class Game implements Runnable {
 		case PLAYING:
 			playing.update();
 			break;
+		case OPTIONS:
+		case QUIT:
 		default:
+			System.exit(0);
 			break;
 		
 		}
@@ -84,6 +91,8 @@ public class Game implements Runnable {
 	@Override
 	public void run() {
 
+		System.out.println("Game.run()............................ Game loop ready");
+		
 		double timePerFrame = 1000000000.0 / FPS;
 		double timePerUpdate = 1000000000.0 / UPS;
 
@@ -95,7 +104,11 @@ public class Game implements Runnable {
 
 		double deltaU = 0; // updates
 		double deltaF = 0; // frames
-
+		
+		System.out.println("Game.run()............................ Outside of Game loop");
+		System.out.println("=============================================================================");
+		System.out.println("======================== GAME: STARTED SUCCESSFULLY =========================");
+		System.out.println("=============================================================================");
 		while (true) {
 			long currentTime = System.nanoTime();
 

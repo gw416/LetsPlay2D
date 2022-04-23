@@ -1,10 +1,24 @@
-Hello! 
+Lets Play 2D is a side scrolling platformer. 
 
-Lets Play 2D is a side scrolling platformer. Launch the game as a java application, and navigate to the menu. 
+Launch the game as a java application. 
 
-Press enter from the menu screen to enter level 1. Press backspace to return to the menu.
+While on Menu:
+ > Play - enter level 1
+ > Options - Options menu (coming soon)
+ > Quit - close the game.
 
-Using A and D to move left and right, SPACE to jump and right click to Attack. As the game is developed new menus, maps and enemies will be added. For now.. try to enjoy whats been created! 
+While Playing: 
+ > BACKSPACE - toggle the pause menu
+ > ESCAPE - toggle the pause menu
+ > A - move left
+ > D - move right
+ > SPACE - jump
+ > RIGHTCLICK - attack. 
 
-
-Feed back is always welcome!
+While Paused:
+ > Toggle music (coming soon)
+ > Toggle Sound Effects (coming soon)
+ > Volume slider
+ > Return to Game Menu
+ > Replay level (coming soon)
+ > Resume Game
