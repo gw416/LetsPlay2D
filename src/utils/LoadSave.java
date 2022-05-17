@@ -18,7 +18,7 @@ import main.Game;
 public class LoadSave {
 
 	public static final String PLAYER_ATLAS = "player_sprites.png";
-	public static final String LEVEL_ATLAS = "exterior_level_sprites.png";
+	public static final String LEVEL_ATLAS = "outside_sprites.png";
 	//public static final String LEVEL_ONE = "level_one_data.png";
 	public static final String LEVEL_ONE = "level_one_data_long.png";
 	public static final String MENU_BUTTONS = "button_atlas.png";
@@ -28,6 +28,10 @@ public class LoadSave {
 	public static final String URM_BUTTONS = "urm_buttons.png"; // unpause replay menu buttons ??
 	public static final String VOLUME_BUTTONS = "volume_buttons.png"; // volume slider
 	public static final String MENU_BACKGROUND_IMG = "background_menu.png"; // volume slider
+	public static final String PLAYING_BG_IMG = "playing_bg_img.png";
+	public static final String SMALL_CLOUDS = "small_clouds.png";
+	public static final String BIG_CLOUDS = "big_clouds.png";
+	public static final String CRABBY_SPRITE = "crabby_sprite.png";
 	
 	public static BufferedImage GetSpriteAtlas(String fileName) {
 		BufferedImage img = null;
