@@ -4,12 +4,15 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import entities.Player;
 import levels.LevelManager;
 import main.Game;
 import ui.PauseOverlay;
 import utils.LoadSave;
+import static utils.Constants.Environment.*;
 
 public class Playing extends State implements StateMethods {
 
@@ -17,6 +20,10 @@ public class Playing extends State implements StateMethods {
 	private LevelManager levelManager;
 	private PauseOverlay pauseOverlay;
 	private boolean paused = false;
+	
+	private BufferedImage horizonImg,bigCloud,smallCloud;
+	private int[] smallCloudsPosition;
+	private Random rnd = new Random();
 	
 	private int xLvlOffset; // how many tiles over the border to shift the level
 	private int leftBorder = (int) (0.2 * Game.GAME_WIDTH); // the left border to determine offset
@@ -30,6 +37,13 @@ public class Playing extends State implements StateMethods {
 		System.out.println("Playing.Playing()..................... Creating Playing state");
 		
 		initClasses();
+		
+		horizonImg = LoadSave.GetSpriteAtlas(LoadSave.PLAYING_BG_IMG);
+		bigCloud = LoadSave.GetSpriteAtlas(LoadSave.BIG_CLOUDS);
+		smallCloud = LoadSave.GetSpriteAtlas(LoadSave.SMALL_CLOUDS);
+		smallCloudsPosition = new int[8];	
+		for (int i = 0; i < smallCloudsPosition.length; i++) 
+			smallCloudsPosition[i] = (int) (90 * Game.SCALE) + rnd.nextInt((int) (105 * Game.SCALE));
 	}
 
 	private void initClasses() {
@@ -70,8 +84,12 @@ public class Playing extends State implements StateMethods {
 
 	@Override
 	public void draw(Graphics g) {
-		levelManager.draw(g, xLvlOffset);
+		
+		g.drawImage(horizonImg, 0, 0, Game.GAME_WIDTH, Game.GAME_HIEGHT, null);
+		drawClouds(g);
+	
 		player.render(g, xLvlOffset);
+		levelManager.draw(g, xLvlOffset);
 		
 		if(paused) {
 			g.setColor(new Color(210,163,163,150));
@@ -80,6 +98,14 @@ public class Playing extends State implements StateMethods {
 		}
 	}
 	
+	private void drawClouds(Graphics g) {
+		for (int i = 0; i < 3; i++) 
+			g.drawImage(bigCloud, i * BIG_CLOUD_WIDTH - (int) (xLvlOffset * 0.3), (int)(204 * Game.SCALE), BIG_CLOUD_WIDTH, BIG_CLOUD_HEIGHT, null);
+		
+		for (int i = 0; i < smallCloudsPosition.length; i++) 
+			g.drawImage(smallCloud, SMALL_CLOUD_WIDTH * 4 * i - (int) (xLvlOffset * 0.7), smallCloudsPosition[i], SMALL_CLOUD_WIDTH, SMALL_CLOUD_HEIGHT, null);
+	}
+
 	public void mouseDragged(MouseEvent e) {
 		if(paused)
 			pauseOverlay.mouseDragged(e);
