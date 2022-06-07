@@ -27,8 +27,8 @@ public class Player extends Entity {
 	private float fallSpeedAfterCollision = 0.5f * Game.SCALE;
 	private boolean inAir = false;
 
-	public Player(float x, float y, int width, int height, String name) {
-		super(x, y, width, height, name);
+	public Player(float x, float y, int width, int height) {
+		super(x, y, width, height);
 		System.out.println("Player.Player()....................... Creating Player entity");
 		
 		loadAnimations();
@@ -43,7 +43,7 @@ public class Player extends Entity {
 
 	public void render(Graphics g, int lvlOffset) {
 		g.drawImage(animations[playerAction][animationIndex], (int) (hitbox.x - xDrawOffset) - lvlOffset, (int) (hitbox.y - yDrawOffset), width, height, null);
-		//drawHitbox(g);
+		//drawHitbox(g, lvlOffset);
 	}
 
 	private void updateAnimationTick() {

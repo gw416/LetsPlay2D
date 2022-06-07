@@ -35,7 +35,7 @@ public class PauseOverlay {
 	private void createVolumeButtons() {
 		int volumeX = (int) (309 * Game.SCALE);
 		int volumeY = (int) (278 * Game.SCALE);
-		volumeButton = new VolumeButton(volumeX, volumeY, SLIDER_WIDTH, VOLUME_HEIGHT, "volumeButton");
+		volumeButton = new VolumeButton(volumeX, volumeY, SLIDER_WIDTH, VOLUME_HEIGHT);
 	}
 
 	private void createUrmButtons() {
@@ -44,9 +44,9 @@ public class PauseOverlay {
 		int unpauseX = (int) (462 * Game.SCALE);
 		int buttonY = (int) (325 * Game.SCALE);
 		
-		menuButton = new UrmButton(menuX, buttonY, URM_SIZE, URM_SIZE, "menuButton", 2);
-		replayButton = new UrmButton(replayX, buttonY, URM_SIZE, URM_SIZE, "replayButton", 1);
-		unpauseButton = new UrmButton(unpauseX, buttonY, URM_SIZE, URM_SIZE, "unpauseButton", 0);
+		menuButton = new UrmButton(menuX, buttonY, URM_SIZE, URM_SIZE, 2);
+		replayButton = new UrmButton(replayX, buttonY, URM_SIZE, URM_SIZE, 1);
+		unpauseButton = new UrmButton(unpauseX, buttonY, URM_SIZE, URM_SIZE, 0);
 		
 	}
 
@@ -55,8 +55,8 @@ public class PauseOverlay {
 		int musicY = (int) (140 * Game.SCALE); // y location on menu
 		int sfxY = (int) (186 * Game.SCALE); // y location on menu
 		
-		musicButton = new SoundButton(soundX, musicY, SOUND_SIZE, SOUND_SIZE, "musicButton");
-		sfxButton = new SoundButton(soundX, sfxY, SOUND_SIZE, SOUND_SIZE, "sfxButton");
+		musicButton = new SoundButton(soundX, musicY, SOUND_SIZE, SOUND_SIZE);
+		sfxButton = new SoundButton(soundX, sfxY, SOUND_SIZE, SOUND_SIZE);
 	}
 
 	private void loadBackground() {

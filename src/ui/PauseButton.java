@@ -7,8 +7,8 @@ public class PauseButton {
 	protected int x,y,width,height;
 	protected Rectangle bounds;
 	
-	public PauseButton(int x, int y, int width, int height, String name) {
-		System.out.println("PauseButton.PauseButton()............. Creating PauseButton super class: --> " + name);
+	public PauseButton(int x, int y, int width, int height) {
+		System.out.println("PauseButton.PauseButton()............. Creating PauseButton super class");
 		
 		this.x = x;
 		this.y = y;

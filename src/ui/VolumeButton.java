@@ -17,8 +17,8 @@ public class VolumeButton extends PauseButton{
 	private boolean mouseOver, mousePressed;
 	private int buttonX, minX, maxX;
 	
-	public VolumeButton(int x, int y, int width, int height, String name) {
-		super(x + width / 2, y, VOLUME_WIDTH, height, name); // change super class params to get the slider icon to start in middle
+	public VolumeButton(int x, int y, int width, int height) {
+		super(x + width / 2, y, VOLUME_WIDTH, height); // change super class params to get the slider icon to start in middle
 		System.out.println("VolumeButton.VolumeButton()........... Creating VolumeButton");
 
 		bounds.x -= VOLUME_WIDTH / 2;
