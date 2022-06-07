@@ -4,10 +4,13 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
+import entities.Crabby;
 import main.Game;
+import static utils.Constants.EnemyConstants.CRABBY;
 
 /**
  * Level Creation, load level, save level, modify level, load game, save game
@@ -42,6 +45,22 @@ public class LoadSave {
 			e.printStackTrace();
 		}
 		return img;
+	}
+	
+	public static ArrayList<Crabby> GetCrabs(){
+		
+		BufferedImage img = GetSpriteAtlas(LEVEL_ONE);
+		ArrayList<Crabby> list = new ArrayList<Crabby>();
+
+		for(int j=0; j< img.getHeight(); j++) {
+			for(int i=0; i<img.getWidth(); i++) {
+				Color color = new Color(img.getRGB(i, j)); // X, Y
+				int value = color.getGreen();
+				if(value == CRABBY)
+					list.add(new Crabby(i * Game.TILES_SIZE, j * Game.TILES_SIZE));
+			}
+		}
+		return list;
 	}
 	
 	// use level data to find the amtching level sprite. level data will be either red green or blue

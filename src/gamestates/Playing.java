@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
+import entities.EnemyManager;
 import entities.Player;
 import levels.LevelManager;
 import main.Game;
@@ -18,6 +19,7 @@ public class Playing extends State implements StateMethods {
 
 	private Player player;
 	private LevelManager levelManager;
+	private EnemyManager enemyManager;
 	private PauseOverlay pauseOverlay;
 	private boolean paused = false;
 	
@@ -50,7 +52,8 @@ public class Playing extends State implements StateMethods {
 		System.out.println("Playing.initClasses()................. Initializing Playing class");
 		
 		levelManager = new LevelManager(game);
-		player = new Player(200, 200, (int) (64 * Game.SCALE), (int) (40 * Game.SCALE), "player");
+		enemyManager = new EnemyManager(this);
+		player = new Player(200, 200, (int) (64 * Game.SCALE), (int) (40 * Game.SCALE));
 		player.loadLvlData(levelManager.getCurrentLevel().getLevelData());
 		pauseOverlay = new PauseOverlay(this);
 		
@@ -61,6 +64,7 @@ public class Playing extends State implements StateMethods {
 		if(!paused) {
 			levelManager.update();
 			player.update();
+			enemyManager.update(levelManager.getCurrentLevel().getLevelData(), player);
 			checkCloseToBorder();
 		}else {
 			pauseOverlay.update();	
@@ -89,6 +93,7 @@ public class Playing extends State implements StateMethods {
 		drawClouds(g);
 	
 		player.render(g, xLvlOffset);
+		enemyManager.draw(g, xLvlOffset);
 		levelManager.draw(g, xLvlOffset);
 		
 		if(paused) {

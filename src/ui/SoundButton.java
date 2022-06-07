@@ -13,8 +13,8 @@ public class SoundButton extends PauseButton {
 	private boolean muted;
 	private int rowIndex,colIndex;
 	
-	public SoundButton(int x, int y, int width, int height, String name) {
-		super(x, y, width, height, name);
+	public SoundButton(int x, int y, int width, int height) {
+		super(x, y, width, height);
 		System.out.println("SoundButton.SoundButton()............. Creating SoundButton");
 
 		loadSoundImages();

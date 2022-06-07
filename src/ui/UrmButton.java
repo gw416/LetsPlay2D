@@ -12,8 +12,8 @@ public class UrmButton extends PauseButton {
 	private int rowIndex, index;
 	private boolean mouseOver, mousePressed;
 
-	public UrmButton(int x, int y, int width, int height, String name, int rowIndex) {
-		super(x, y, width, height, name);
+	public UrmButton(int x, int y, int width, int height, int rowIndex) {
+		super(x, y, width, height);
 		System.out.println("UrmButton.UrmButton()................. Creating UrmButton");
 
 		this.rowIndex = rowIndex;
