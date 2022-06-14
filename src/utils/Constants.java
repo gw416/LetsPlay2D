@@ -41,6 +41,24 @@ public class Constants {
 			
 			return 0;
 		}
+		
+		public static int GetMaxHealth(int enemy_type) {
+			switch (enemy_type) {
+				case CRABBY:
+					return 10;
+				default:
+					return 1;
+			}
+		}
+		
+		public static int GetEnemyDmg(int enemy_type) {
+			switch (enemy_type) {
+			case CRABBY:
+				return 15;
+			default:
+				return 0;
+			}
+		}
 
 	}
 	
@@ -100,12 +118,9 @@ public class Constants {
 		public static final int RUNNING = 1;
 		public static final int JUMP = 2;
 		public static final int FALLING = 3;
-		public static final int GROUND = 4;
+		public static final int ATTACK = 4;
 		public static final int HIT = 5;
-		public static final int ATTACK_1 = 6;
-		public static final int ATTACK_JUMP_1 = 7;
-		public static final int ATTACK_JUMP_2 = 8;
-
+		public static final int DEAD = 6;
 		/**
 		 * Determine the number of sprites for each action.
 		 * 
@@ -116,6 +131,8 @@ public class Constants {
 		 */
 		public static int GetSpriteAmounts(int player_action) {
 			switch (player_action) {
+			case DEAD: 	
+				return 8;
 			case RUNNING:
 				return 6; // has 6 sprites
 			case IDLE:
@@ -123,12 +140,8 @@ public class Constants {
 			case HIT:
 				return 4; // has 4 sprites ect.
 			case JUMP:
-			case ATTACK_1:
-			case ATTACK_JUMP_1:
-			case ATTACK_JUMP_2:
-				return 3;
-			case GROUND:
-				return 2; 
+			case ATTACK:
+				return 3; 
 			case FALLING:
 			default:
 				return 1;
