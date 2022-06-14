@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import gamestates.Gamestate;
 import gamestates.Menu;
 import gamestates.Playing;
+import utils.LoadSave;
 
 /**
  * The Game class will handle all other entities within the entire game.
@@ -36,6 +37,7 @@ public class Game implements Runnable {
 
 		gamePanel = new GamePanel(this);
 		gameWindow = new GameWindow(gamePanel);
+		gamePanel.setFocusable(true);
 		gamePanel.requestFocus();
 
 		startGameLooper();
