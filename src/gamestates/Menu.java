@@ -13,21 +13,16 @@ import utils.LoadSave;
 public class Menu extends State implements StateMethods{
 
 	private MenuButton[] buttons = new MenuButton[3];
-	private BufferedImage backgroundImg, menuBackgroundImg;
+	private BufferedImage backgroundImg;
 	private int menuX, menuY, menuWidth, menuHeight;
 	
 	public Menu(Game game) {
-		super(game);
-		System.out.println("Menu.Menu()........................... Creating Menu state");
-		
+		super(game);		
 		loadButtons();
 		loadBackground();
-		menuBackgroundImg = LoadSave.GetSpriteAtlas(LoadSave.MENU_BACKGROUND_IMG);
 	}
 
-	private void loadBackground() {
-		System.out.println("Menu.loadBackground()................. Creating Menu background");
-		
+	private void loadBackground() {		
 		backgroundImg = LoadSave.GetSpriteAtlas(LoadSave.MENU_BACKGROUND);
 		menuWidth = (int)(backgroundImg.getWidth() * Game.SCALE);
 		menuHeight = (int)(backgroundImg.getHeight() * Game.SCALE);
@@ -36,8 +31,6 @@ public class Menu extends State implements StateMethods{
 	}
 
 	private void loadButtons() {
-		System.out.println("Menu.loadButtons().................... Creating Menu buttons");
-		
 		// 2nd param is used for horizontal pixel placement * scale of game
 		buttons[0] = new MenuButton(Game.GAME_WIDTH / 2, (int) (150 * Game.SCALE), 0, Gamestate.PLAYING); // play button
 		buttons[1] = new MenuButton(Game.GAME_WIDTH / 2, (int) (220 * Game.SCALE), 1, Gamestate.OPTIONS); // Options button
@@ -57,9 +50,6 @@ public class Menu extends State implements StateMethods{
 		Color bgColor = new Color(210,163,163);
 		g.setColor(bgColor);
 		g.fillRect(0, 0, Game.GAME_WIDTH, Game.GAME_HIEGHT);
-		//g.drawImage(menuBackgroundImg, 0, 0, Game.GAME_WIDTH, Game.GAME_HIEGHT, null);
-		
-		// menu backround before buttons
 		g.drawImage(backgroundImg,  menuX, menuY, menuWidth, menuHeight, null);
 		for (MenuButton mb : buttons) 
 			mb.draw(g);
@@ -67,7 +57,6 @@ public class Menu extends State implements StateMethods{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -112,15 +101,10 @@ public class Menu extends State implements StateMethods{
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_ENTER)
 			Gamestate.state = Gamestate.PLAYING;
-		
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
-	
-	
-
 }

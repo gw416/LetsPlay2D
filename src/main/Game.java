@@ -44,8 +44,6 @@ public class Game implements Runnable {
 	}
 
 	private void initClasses() {
-		System.out.println("Game.initClasses().................... Initializing Game state");
-		
 		menu = new Menu(this);
 		playing = new Playing(this);
 	}
@@ -92,9 +90,6 @@ public class Game implements Runnable {
 
 	@Override
 	public void run() {
-
-		System.out.println("Game.run()............................ Game loop ready");
-		
 		double timePerFrame = 1000000000.0 / FPS;
 		double timePerUpdate = 1000000000.0 / UPS;
 
@@ -107,7 +102,6 @@ public class Game implements Runnable {
 		double deltaU = 0; // updates
 		double deltaF = 0; // frames
 		
-		System.out.println("Game.run()............................ Outside of Game loop");
 		System.out.println("=============================================================================");
 		System.out.println("======================== GAME: STARTED SUCCESSFULLY =========================");
 		System.out.println("=============================================================================");
@@ -151,5 +145,4 @@ public class Game implements Runnable {
 	public Playing getPlaying() {
 		return playing;
 	}
-
 }

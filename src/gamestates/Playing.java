@@ -42,8 +42,6 @@ public class Playing extends State implements StateMethods {
 
 	public Playing(Game game) {
 		super(game);
-		System.out.println("Playing.Playing()..................... Creating Playing state");
-
 		initClasses();
 
 		horizonImg = LoadSave.GetSpriteAtlas(LoadSave.PLAYING_BG_IMG);
@@ -72,8 +70,6 @@ public class Playing extends State implements StateMethods {
 	}
 
 	private void initClasses() {
-		System.out.println("Playing.initClasses()................. Initializing Playing class");
-
 		levelManager = new LevelManager(game);
 		enemyManager = new EnemyManager(this);
 		player = new Player(200, 200, (int) (64 * Game.SCALE), (int) (40 * Game.SCALE), this);
@@ -82,12 +78,10 @@ public class Playing extends State implements StateMethods {
 		pauseOverlay = new PauseOverlay(this);
 		gameOverOverlay = new GameOverOverlay(this);
 		levelCompletedOverlay = new LevelCompletedOverlay(this);
-
 	}
 
 	@Override
 	public void update() {
-
 		if (paused) {
 			pauseOverlay.update();
 		} else if (lvlCompleted) {
@@ -98,7 +92,6 @@ public class Playing extends State implements StateMethods {
 			enemyManager.update(levelManager.getCurrentLevel().getLevelData(), player);
 			checkCloseToBorder();
 		}
-
 	}
 
 	private void checkCloseToBorder() {
@@ -147,7 +140,6 @@ public class Playing extends State implements StateMethods {
 	}
 
 	public void resetAll() {
-		// TODO - reset playing, enemy, lvl etc
 		gameOver = false;
 		paused = false;
 		lvlCompleted = false;

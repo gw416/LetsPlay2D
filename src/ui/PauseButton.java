@@ -7,15 +7,12 @@ public class PauseButton {
 	protected int x,y,width,height;
 	protected Rectangle bounds;
 	
-	public PauseButton(int x, int y, int width, int height) {
-		System.out.println("PauseButton.PauseButton()............. Creating PauseButton super class");
-		
+	public PauseButton(int x, int y, int width, int height) {		
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 		createBounds();
-		
 	}
 
 	private void createBounds() {
@@ -61,7 +58,4 @@ public class PauseButton {
 	public void setBounds(Rectangle bounds) {
 		this.bounds = bounds;
 	}
-	
-	
-
 }

@@ -23,8 +23,6 @@ public class PauseOverlay {
 	private VolumeButton volumeButton;
 		
 	public PauseOverlay(Playing playing) {
-		System.out.println("PauseOverlay.PauseOverlay()........... Creating PauseOverlay");
-
 		this.playing = playing;
 		loadBackground();
 		createSoundButtons();
@@ -47,7 +45,6 @@ public class PauseOverlay {
 		menuButton = new UrmButton(menuX, buttonY, URM_SIZE, URM_SIZE, 2);
 		replayButton = new UrmButton(replayX, buttonY, URM_SIZE, URM_SIZE, 1);
 		unpauseButton = new UrmButton(unpauseX, buttonY, URM_SIZE, URM_SIZE, 0);
-		
 	}
 
 	private void createSoundButtons() {
@@ -60,8 +57,6 @@ public class PauseOverlay {
 	}
 
 	private void loadBackground() {
-		System.out.println("PauseOverlay.loadBackground()......... Loading PauseOverlay background");
-		
 		backgroundImg = LoadSave.GetSpriteAtlas(LoadSave.PAUSE_BACKGROUND);
 		bgW = (int) (backgroundImg.getWidth() * Game.SCALE);
 		bgH = (int) (backgroundImg.getHeight() * Game.SCALE);
@@ -70,20 +65,15 @@ public class PauseOverlay {
 	}
 
 	public void update() {
-		//System.out.println("PauseOverlay.update()..................... Updating PauseOverlay ");
 		musicButton.update();
 		sfxButton.update();
-		
 		menuButton.update();
 		replayButton.update();
 		unpauseButton.update();
-		
 		volumeButton.update();
 	}
 	
 	public void draw(Graphics g) {
-		//System.out.println("PauseOverlay.draw()..................... Drawing PauseOverlay ");
-		
 		// background
 		g.drawImage(backgroundImg, bgX, bgY, bgW, bgH, null);
 		
@@ -104,10 +94,8 @@ public class PauseOverlay {
 		
 		if(volumeButton.isMousePressed()) {
 			volumeButton.changeX(e.getX());
-		}
-		
+		}	
 	}
-
 
 	public void mousePressed(MouseEvent e) {
 		if(isIn(e,musicButton)) {
@@ -124,7 +112,6 @@ public class PauseOverlay {
 			volumeButton.setMousePressed(true);
 		}
 	}
-
 
 	public void mouseReleased(MouseEvent e) {
 		if(isIn(e,musicButton)) {
@@ -156,7 +143,6 @@ public class PauseOverlay {
 		volumeButton.resetBooleans();
 	}
 
-
 	public void mouseMoved(MouseEvent e) {
 		musicButton.setMouseOver(false);
 		sfxButton.setMouseOver(false);
@@ -183,6 +169,4 @@ public class PauseOverlay {
 	private boolean isIn(MouseEvent e, PauseButton pb ) {
 		return pb.getBounds().contains(e.getX(), e.getY());
 	}
-
-
 }
