@@ -14,11 +14,8 @@ public class UrmButton extends PauseButton {
 
 	public UrmButton(int x, int y, int width, int height, int rowIndex) {
 		super(x, y, width, height);
-		System.out.println("UrmButton.UrmButton()................. Creating UrmButton");
-
 		this.rowIndex = rowIndex;
 		loadImages();
-
 	}
 
 	private void loadImages() {
@@ -35,7 +32,6 @@ public class UrmButton extends PauseButton {
 			index = 1;
 		if (mousePressed)
 			index = 2;
-
 	}
 
 	public void draw(Graphics g) {
@@ -62,6 +58,4 @@ public class UrmButton extends PauseButton {
 	public void setMousePressed(boolean mousePressed) {
 		this.mousePressed = mousePressed;
 	}
-
-	
 }

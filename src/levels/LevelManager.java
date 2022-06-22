@@ -16,21 +16,17 @@ public class LevelManager {
 	private int lvlIndex = 0;
 
 	public LevelManager(Game game) {
-		System.out.println("LevelManager.LevelManager()........... Creating LevelManager");
-
 		this.game = game;
 		importOutsideSprites();
 		levels = new ArrayList<>();
 		buildAllLevels();
 	}
-	
 
 	public void loadNextLevel() {
 		lvlIndex++;
 		if(lvlIndex >=  levels.size()) {
-			// TODO add game ending overlay
 			lvlIndex = 0;
-			System.out.println("GAME COMPLETED<NO MORE LEVELS>");
+			System.out.println("GAME COMPLETED");
 			Gamestate.state = Gamestate.MENU;
 		}
 		
@@ -48,8 +44,6 @@ public class LevelManager {
 	}
 
 	private void importOutsideSprites() {
-		System.out.println("LevelManager.importOutsideSprites()... Importing outside sprites");
-
 		BufferedImage img = LoadSave.GetSpriteAtlas(LoadSave.LEVEL_ATLAS);
 		levelSprite = new BufferedImage[48]; // level sprite is a 4 tile x 12 tile image
 
@@ -82,5 +76,4 @@ public class LevelManager {
 	public int getAmountOfLevels() {
 		return levels.size();
 	}
-
 }

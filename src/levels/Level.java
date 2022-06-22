@@ -39,7 +39,6 @@ public class Level {
 	}
 	private void createEnemies() {
 		crabs = GetCrabs(img);
-		
 	}
 	private void createLevelData() {
 		levelData = GetLevelData(img);		

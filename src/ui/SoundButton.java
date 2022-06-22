@@ -15,14 +15,10 @@ public class SoundButton extends PauseButton {
 	
 	public SoundButton(int x, int y, int width, int height) {
 		super(x, y, width, height);
-		System.out.println("SoundButton.SoundButton()............. Creating SoundButton");
-
 		loadSoundImages();
 	}
 
 	private void loadSoundImages() {
-		System.out.println("SoundButton.loadSoundImages()......... Loading SoundButton images");
-		
 		BufferedImage tmp = LoadSave.GetSpriteAtlas(LoadSave.SOUNDS_BUTTONS);
 		soundImages = new BufferedImage[2][3];
 		
@@ -74,7 +70,5 @@ public class SoundButton extends PauseButton {
 
 	public void setMuted(boolean muted) {
 		this.muted = muted;
-	}
-	
-	
+	}	
 }
