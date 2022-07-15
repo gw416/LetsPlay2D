@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import entities.Crabby;
 import main.Game;
+import objects.Cannon;
 import objects.GameContainer;
 import objects.Potion;
 import objects.Spike;
@@ -22,6 +23,7 @@ public class Level {
 	private ArrayList<Crabby> crabs;
 	private ArrayList<Potion> potions;
 	private ArrayList<GameContainer> containers;
+	private ArrayList<Cannon> cannons;
 	private ArrayList<Spike> spikes;
 	private int levelTilesWide; // the entire level width in tiles
 	private int maxTilesOffset; // max tiles we can actually move the screen
@@ -36,8 +38,12 @@ public class Level {
 		createPotions();
 		createContainers();
 		createSpikes();
+		createCannons();
 		calcLvlOffsets();
 		calcPlayerSpawn();
+	}
+	private void createCannons() {
+		cannons = HelpMethods.GetCannons(img);
 	}
 	private void createSpikes() {
 		spikes = HelpMethods.GetSpikes(img);
@@ -89,5 +95,8 @@ public class Level {
 	}
 	public ArrayList<Spike> getSpikes(){
 		return spikes;
+	}
+	public ArrayList<Cannon> getCannons() {
+		return cannons;
 	}
 }
