@@ -44,12 +44,14 @@ public class Player extends Entity {
 	private boolean attackChecked;
 	private Playing playing;
 	
+	private int tileY = 0;
+	
 	public Player(float x, float y, int width, int height, Playing playing) {
 		super(x, y, width, height);
 		this.playing = playing;
 		this.state = IDLE;
 		this.maxHealth = 100;
-		this.currentHealth = 35;
+		this.currentHealth = 100;
 		this.walkSpeed = Game.SCALE * 1.0f;
 		
 		loadAnimations();
@@ -71,20 +73,30 @@ public class Player extends Entity {
 	public void update() {
 		updateHealthBar();
 		
-		if(currentHealth <= 0) {
-			playing.setGameOver(true);
+		if (currentHealth <= 0) {
+			if (state != DEAD) {
+				state = DEAD;
+				aniTick=0;
+				aniIndex=0;
+				playing.setPlayerDying(true);
+			} else if (aniIndex == GetSpriteAmounts(DEAD) - 1 && aniTick >= ANI_SPEED - 1) {
+				playing.setGameOver(true);	
+			} else {
+				updateAniTick();
+			}
 			return;
 		}
 		
 		updateAttackBox();
 		updatePos();
-		if(moving) {
+		if (moving) {
 			checkPotionTouched();
 			checkSpikesTouched();
+			tileY = (int) (hitbox.y / Game.TILES_SIZE);
 		}
-		if(attacking)
+		if (attacking)
 			checkAttack();
-		updateaniTick();
+		updateAniTick();
 		setAnimation();
 	}
 
@@ -130,7 +142,7 @@ public class Player extends Entity {
 		g.fillRect(healthBarXStart + statusBarX, healthBarYStart + statusBarY, healthWidth, healthBarHeight);
 	}
 
-	private void updateaniTick() {
+	private void updateAniTick() {
 		aniTick++;
 
 		if (aniTick >= ANI_SPEED) {
@@ -313,5 +325,9 @@ public class Player extends Entity {
 		
 		if(!IsEntityOnFloor(hitbox, lvlData))
 			inAir = true;
+	}
+	
+	public int getTileY() {
+		return tileY;
 	}
 }

@@ -41,6 +41,8 @@ public class Playing extends State implements StateMethods {
 
 	private boolean gameOver;
 	private boolean lvlCompleted;
+	
+	private boolean playerDying = false;
 
 	public Playing(Game game) {
 		super(game);
@@ -90,9 +92,13 @@ public class Playing extends State implements StateMethods {
 			pauseOverlay.update();
 		} else if (lvlCompleted) {
 			levelCompletedOverlay.update();
-		} else if (!gameOver) {
+		} else if (gameOver) {
+			gameOverOverlay.update();
+		} else if (playerDying) {
+			player.update();
+		} else { 
 			levelManager.update();
-			objectManager.update();
+			objectManager.update(levelManager.getCurrentLevel().getLevelData(), player);
 			player.update();
 			enemyManager.update(levelManager.getCurrentLevel().getLevelData(), player);
 			checkCloseToBorder();
@@ -149,6 +155,7 @@ public class Playing extends State implements StateMethods {
 		gameOver = false;
 		paused = false;
 		lvlCompleted = false;
+		playerDying = false;
 		player.resetAll();
 		enemyManager.resetAllEnemies();
 		objectManager.resetAllObjects();
@@ -198,6 +205,8 @@ public class Playing extends State implements StateMethods {
 				pauseOverlay.mousePressed(e);
 			else if (lvlCompleted)
 				levelCompletedOverlay.mousePressed(e);
+		}else {
+			gameOverOverlay.mousePressed(e);
 		}
 	}
 
@@ -208,6 +217,8 @@ public class Playing extends State implements StateMethods {
 				pauseOverlay.mouseReleased(e);
 			else if (lvlCompleted)
 				levelCompletedOverlay.mouseReleased(e);
+		}else {
+			gameOverOverlay.mouseReleased(e);
 		}
 	}
 
@@ -218,6 +229,8 @@ public class Playing extends State implements StateMethods {
 				pauseOverlay.mouseMoved(e);
 			else if (lvlCompleted)
 				levelCompletedOverlay.mouseMoved(e);
+		}else {
+			gameOverOverlay.mouseMoved(e);
 		}
 	}
 
@@ -287,5 +300,9 @@ public class Playing extends State implements StateMethods {
 	}
 	public LevelManager getLevelManager() {
 		return levelManager;
+	}
+
+	public void setPlayerDying(boolean playerDying) {
+		this.playerDying = playerDying;
 	}
 }
