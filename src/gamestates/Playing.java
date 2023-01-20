@@ -8,6 +8,7 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
+import audio.AudioPlayer;
 import entities.EnemyManager;
 import entities.Player;
 import levels.LevelManager;
@@ -184,6 +185,8 @@ public class Playing extends State implements StateMethods {
 
 	public void setLevelCompleted(boolean levelCompleted) {
 		this.lvlCompleted = levelCompleted;
+		if(levelCompleted)
+			game.getAudioPlayer().levelCompleted();
 	}
 	public void mouseDragged(MouseEvent e) {
 		if (!gameOver)
