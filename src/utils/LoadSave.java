@@ -1,20 +1,13 @@
 package utils;
 
-import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
-
-import entities.Crabby;
-import main.Game;
-import static utils.Constants.EnemyConstants.CRABBY;
 
 /**
  * Level Creation, load level, save level, modify level, load game, save game
@@ -45,6 +38,7 @@ public class LoadSave {
 	public static final String CANNON_ATLAS = "cannon_atlas.png";
 	public static final String CANNON_BALL = "ball.png";
 	public static final String DEATH_SCREEN = "death_screen.png";
+	public static final String OPTIONS_MENU = "options_background.png";
 	
 	
 	public static BufferedImage GetSpriteAtlas(String fileName) {

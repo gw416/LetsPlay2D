@@ -75,4 +75,7 @@ public class MenuButton {
 	public void setBounds(Rectangle bounds) {
 		this.bounds = bounds;
 	}
+	public Gamestate getState() {
+		return state;
+	}
 }
