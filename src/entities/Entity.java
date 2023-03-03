@@ -52,4 +52,8 @@ public abstract class Entity {
 	public int getState() {
 		return state;
 	}
+	
+	public int getCurrentHealth() {
+		return currentHealth;
+	}
 }
