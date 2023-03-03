@@ -1,31 +1,42 @@
-Lets Play 2D is a side scrolling platform Game. 
+Lets Play 2D is a side scrolling platform Game build entirely in Java. 
+
+Download and Launch the game as a Java Application. 
+
+
+> How to Play:
+
+* To complete a Level you must defeat all enemies without losing all your health.
+* To win, complete all Levels - Good luck and have fun! 
+
+ --------------------------------------------------------------------------------------------------------------------
 
 ![LetsPlay2D](https://user-images.githubusercontent.com/25712746/222812021-de8c0714-2e89-4541-a0d7-c2c377f8fabc.PNG)
 
-Download and Launch the game as a Java Application. To win, complete all Levels. 
-
-To beat a Level you must defeat all enemies without losing all your health.
-
+ --------------------------------------------------------------------------------------------------------------------
+ 
 > While on Menu:
- * Play - enter level 1
- * Options - Options menu (coming soon)
- * Quit - close the game.
+ * PLAY - Start the game on Level 1.
+ * OPTIONS - Opens the Options menu to control sound settings.
+ * QUIT - Closes the game.
 
 > While Playing: 
- * BACKSPACE - toggle the pause menu
- * ESCAPE - toggle the pause menu
- * A - move left
- * D - move right
- * SPACE - jump
- * RIGHTCLICK - attack. 
+ * BACKSPACE - Toggle the PAUSE menu.
+ * ESCAPE - Toggle the PAUSE menu.
+ * A - Move Left.
+ * D - Move Right.
+ * SPACE - Jump.
+ * LEFTCLICK - Basic Attack.
+ * RIGHTCLICK - Power Attack. 
+ * BLUE POTION - Gain power bar stacks.
+ * RED POTION - Gain health bar stacks.
 
 > While Paused:
- * Toggle music (coming soon)
- * Toggle Sound Effects (coming soon)
- * Volume slider
- * Return to Game Menu
- * Replay level
- * Resume Game
+ * Toggle music.
+ * Toggle Sound Effects.
+ * Volume slider.
+ * Return to Game Menu.
+ * Restart Current Level.
+ * Resume Game.
 
 > After Completing a Level
  * Return to Menu
@@ -42,7 +53,7 @@ If you are to create new levels you must maintain these rules:
 
 > 	 Minimum Level width of 26 tiles (pixels)
 
-> 	 Level .png name should be a number  (Ex. 5.png, 6.png ... 9.png)
+> 	 Level .png name should be a number higher than the previous Level (Ex. 5.png, 6.png ... 9.png)
 
 > 	 Player spawn must exist
 
