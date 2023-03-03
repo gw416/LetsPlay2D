@@ -1,5 +1,7 @@
 Lets Play 2D is a side scrolling platform Game. 
 
+![LetsPlay2D](https://user-images.githubusercontent.com/25712746/222812021-de8c0714-2e89-4541-a0d7-c2c377f8fabc.PNG)
+
 Download and Launch the game as a Java Application. To win, complete all Levels. 
 
 To beat a Level you must defeat all enemies without losing all your health.
