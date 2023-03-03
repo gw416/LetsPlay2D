@@ -61,9 +61,9 @@ public class Playing extends State implements StateMethods {
 	}
 	
 	public void loadNextLevel() {
-		resetAll();
 		levelManager.loadNextLevel();
 		player.setSpawn(levelManager.getCurrentLevel().getPlayerSpawn());
+		resetAll();
 	}
 
 	private void loadStartLevel() {
@@ -196,9 +196,13 @@ public class Playing extends State implements StateMethods {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if (!gameOver)
+		if (!gameOver) {
 			if (e.getButton() == MouseEvent.BUTTON1)
 				player.setAttacking(true);
+			else if(e.getButton() == MouseEvent.BUTTON3) // note: button 2 is scroll wheel so use button 3 for right click (this made me go insane lol)
+				player.powerAttack();
+				
+		}
 	}
 
 	@Override
